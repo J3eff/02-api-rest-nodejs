@@ -1,11 +1,10 @@
 {
   "name": "02-api-rest-nodejs",
   "version": "1.0.0",
-  "type": "commonjs",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "tsx watch src/server.ts"
   },
   "repository": {
     "type": "git",
@@ -19,6 +18,11 @@
   },
   "homepage": "https://github.com/J3eff/02-api-rest-nodejs#readme",
   "devDependencies": {
+    "@types/node": "^24.3.1",
+    "tsx": "^4.20.5",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "fastify": "^5.6.0"
   }
 }
