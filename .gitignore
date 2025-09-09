@@ -1,6 +1,7 @@
 # Dependências
 node_modules/
 *.tgz
+tmp/app.db
 
 # Build e Output
 dist/
