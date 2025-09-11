@@ -5,19 +5,19 @@ import { randomUUID } from "node:crypto";
 import { checkSessionnIdExists } from "../middlewares/check-session-id-exists";
 
 export async function transactionsRoutes(app: FastifyInstance) {
-  app.get(
-    "/",
-    { preHandler: [checkSessionnIdExists] },
-    async (request, reply) => {
-      const { sessionId } = request.cookies;
+  app.addHook("preHandler", async (request, reply) => {
+    console.log(`[${request.method}] ${request.url}`);
+  });
 
-      const transactions = await knex("transactions")
-        .where("session_id", sessionId)
-        .select();
+  app.get("/", { preHandler: [checkSessionnIdExists] }, async (request) => {
+    const { sessionId } = request.cookies;
 
-      return { transactions };
-    }
-  );
+    const transactions = await knex("transactions")
+      .where("session_id", sessionId)
+      .select();
+
+    return { transactions };
+  });
 
   app.get(
     "/:id",
