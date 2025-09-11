@@ -15,16 +15,11 @@ export async function transactionsRoutes(app: FastifyInstance) {
       request.body
     );
 
-    try {
-      await knex("transactions").insert({
-        id: randomUUID(),
-        title,
-        amount: type === "credit" ? amount : amount * -1,
-      });
-    } catch (error) {
-      console.error(error);
-      return reply.status(500).send(error);
-    }
+    await knex("transactions").insert({
+      id: randomUUID(),
+      title,
+      amount: type === "credit" ? amount : amount * -1,
+    });
 
     return reply.status(201).send();
   });
