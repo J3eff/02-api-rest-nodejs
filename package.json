@@ -22,7 +22,9 @@
   "homepage": "https://github.com/J3eff/02-api-rest-nodejs#readme",
   "devDependencies": {
     "@types/node": "^24.3.1",
+    "@types/supertest": "^6.0.3",
     "eslint": "^9.35.0",
+    "supertest": "^7.1.4",
     "tsx": "^4.20.5",
     "typescript": "^5.9.2",
     "vitest": "^3.2.4"
